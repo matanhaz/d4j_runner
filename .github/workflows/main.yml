@@ -1,0 +1,117 @@
+name: lang_0
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  build0:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    strategy:
+      fail-fast: false
+      matrix:
+          bug_ind: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250]
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+
+      - name: Set up JDK 1.8
+        uses: AdoptOpenJDK/install-jdk@v1
+        with:
+          version: '8'
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+          pip install pydriller
+          pip install PyGithub
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: matanhaz/defects4j
+          path: .
+          fetch-depth: 0
+
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout mvnpy
+        uses: actions/checkout@v2
+        with:
+          repository: rotba/mvnpy
+          path: ./framework/bug-mining/tracing/mvnpy
+          fetch-depth: 0
+          ref: miner_merge
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining/tracing
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/tracing/bug-mining_${{ matrix.bug_ind}}/framework
+            rm -rf ./framework/bug-mining/tracing/project_repos
+            rm -rf ./framework/bug-mining/tracing/sfl
+            rm -rf ./framework/bug-mining/tracing/javadiff
+            rm -rf ./framework/bug-mining/tracing/mvnpy
+            rm -rf ./framework/bug-mining/tracing
+      - name: ls
+        if: ${{always()}}
+        run: ls -R
+        working-directory: ./framework
+
+
+      - name: Upload
+        if: ${{always()}}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: framework
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
