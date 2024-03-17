@@ -50,7 +50,7 @@ jobs:
           pip install pathlib
           pip install junitparser
           pip install numpy
-          pip install sklearn
+          pip install scikit-learn
           pip install pandas
           pip install pyswarm
           pip install networkx
