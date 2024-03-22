@@ -111,12 +111,30 @@ jobs:
         run: ls -R
         working-directory: ./framework
 
+      - name: Script
+        run: |
+              import os
+              os.mkdir(os.path.join('.','framework',"matrixes"))
+              active_bugs = False
+              old_matrixes_path = os.path.join('.','framework','bug-mining')
+              for folder in os.listdir(old_matrixes_path):
+                  if 'tracer' in folder:
+                      bug_number = folder.split('_')[2]
+                      if os.path.exists(os.path.join(old_matrixes_path,folder, f"matrix_{bug_number}_full.json")):
+                          os.mkdir(os.path.join('.','framework',"matrixes", folder))
+                          old = os.path.join(old_matrixes_path,folder,f"matrix_{bug_number}_full.json")
+                          new = os.path.join('.','framework',"matrixes",folder,f"matrix_{bug_number}_full.json")
+                          os.rename(old,new)
+                          if not active_bugs:
+                              active_bugs = True
+              os.rename(os.path.join('.','framework','bug-mining',"active-bugs.csv"),os.path.join('.','framework', "matrixes","active-bugs.csv"))
+        shell: python
 
       - name: Upload
         if: ${{always()}}
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
-          name: framework
+          name: ${{github.event.issue.title}}
           # A file, directory or wildcard pattern that describes what to upload
-          path: ./framework/bug-mining
+          path: ./framework/matrixes
