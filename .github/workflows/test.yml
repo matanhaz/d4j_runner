@@ -1,7 +1,6 @@
-name: lang_0
+name: test
 on:
-  issues:
-    types: [opened]
+  workflow_dispatch:
 
 jobs:
   build0:
