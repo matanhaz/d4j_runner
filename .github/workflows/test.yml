@@ -53,6 +53,9 @@ jobs:
         run: |
           cpanm --installdeps .
           ./init.sh
+          echo "/framework/bin" >> $GITHUB_PATH
+     #     export PATH=$PATH:./framework/bin
+
           
       - name: Script
         run: |
