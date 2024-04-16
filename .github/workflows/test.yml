@@ -64,8 +64,9 @@ jobs:
         shell: python
 
       - name: run
-        run: defects4j query -p ${{ matrix.project}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o /ActiveBugs/active-bugs- ${{ matrix.project}}.csv -A
-        working-directory: ./framework/bin
+        run: |
+              cd ./framework/bin
+              defects4j query -p ${{ matrix.project}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o /ActiveBugs/active-bugs- ${{ matrix.project}}.csv -A
           
       - name: Upload
         if: ${{always()}}
