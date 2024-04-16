@@ -1,0 +1,75 @@
+name: lang_0
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  build0:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    strategy:
+      fail-fast: false
+      matrix:
+          project: [Cli]
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          show-progress: false
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven --fix-missing
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+
+      - name: Set up JDK 1.8
+        uses: AdoptOpenJDK/install-jdk@v1
+        with:
+          version: '8'
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+       
+      - name: Checkout d4j
+        uses: actions/checkout@v4
+        with:
+          repository: rjust/defects4j
+          path: .
+          fetch-depth: 0
+          show-progress: false
+
+
+      - name: Install dependencies
+        run: |
+          cpanm --installdeps .
+          ./init.sh
+          
+      - name: Script
+        run: |
+              import os
+              os.mkdir(os.path.join('.','ActiveBugs'))
+        shell: python
+
+      - name: run
+        run: defects4j query -p ${{ matrix.project}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o /ActiveBugs/active-bugs- ${{ matrix.project}}.csv -A
+        working-directory: ./framework/bin
+          
+      - name: Upload
+        if: ${{always()}}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: ActiveBugs
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./ActiveBugs
