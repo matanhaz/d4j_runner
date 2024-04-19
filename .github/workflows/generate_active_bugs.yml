@@ -75,6 +75,7 @@ jobs:
       - name: Script
         run: |
               import csv
+              import os
               csv_path = os.path.join('.','ActiveBugs', 'active-bugs.csv')
               topics = ["bug.id", "revision.id.buggy", "revision.id.fixed", "report.id"]
               with open(csv_path, 'r', newline='') as file:
