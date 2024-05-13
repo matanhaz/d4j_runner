@@ -120,6 +120,7 @@ jobs:
       - name: Script
         run: |
               import os
+              import shutil
               os.mkdir(os.path.join('.','framework',"matrixes"))
               active_bugs = False
               old_matrixes_path = os.path.join('.','framework','bug-mining')
@@ -130,7 +131,7 @@ jobs:
                           os.mkdir(os.path.join('.','framework',"matrixes", folder))
                           old = os.path.join(old_matrixes_path,folder,f"matrix_{bug_number}_full.json")
                           new = os.path.join('.','framework',"matrixes",folder,f"matrix_{bug_number}_full.json")
-                          os.rename(old,new)
+                          shutil.copy(old, new)
                           if not active_bugs:
                               active_bugs = True
               os.rename(os.path.join('.','framework','bug-mining',"active-bugs.csv"),os.path.join('.','framework', "matrixes","active-bugs.csv"))
