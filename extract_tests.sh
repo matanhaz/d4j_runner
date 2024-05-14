@@ -3,6 +3,7 @@ PROJECT=$1
 VERSION=$2
 DIRECTORY=$3/$1/$2
 OUT_DIRECTORY=$4/$1/$2
+DEFECT_PATH=$5
 
 FAILED_TESTS_PATH="${OUT_DIRECTORY}/failed_tests.txt"
 ALL_TESTS_PATH="${OUT_DIRECTORY}/all_tests.txt"
@@ -15,7 +16,7 @@ fi
 
 ## Run tests
 echo "Running tests";
-defects4j test -w "${DIRECTORY}"
+$DEFECT_PATH test -w "${DIRECTORY}"
 
 # Save trigger_test info
 echo "Saving trigger_test info into the failed tests";
