@@ -2,12 +2,12 @@
 PROJECT=$1
 VERSION=$2
 OUTPUT=$3
+DEFECT_PATH=$4
 
 # checkout and get repo folder
-mkdir  "${OUTPUT}/${PROJECT}"
 mkdir  "${OUTPUT}/${PROJECT}/${VERSION}"
 echo 1
-defects4j checkout -p "${PROJECT}" -v "${VERSION}b" -w "${OUTPUT}/${PROJECT}/${VERSION}"
+$DEFECT_PATH checkout -p "${PROJECT}" -v "${VERSION}b" -w "${OUTPUT}/${PROJECT}/${VERSION}"
 echo 2
 
 
@@ -20,7 +20,7 @@ java -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
 echo 3
 
 # extract tests
-./extract_tests.sh $PROJECT $VERSION $OUTPUT $OUTPUT
+./extract_tests.sh $PROJECT $VERSION $OUTPUT $OUTPUT $DEFECT_PATH
 echo 4
 
 # extracting ground truth
@@ -29,5 +29,5 @@ cp ground_truth/$PROJECT/$VERSION/ground_truth.txt projects/$PROJECT/$VERSION
 echo 5
 
 # extracting traces
-./extract_coverage.sh $PROJECT $VERSION $OUTPUT $OUTPUT
+./extract_coverage.sh $PROJECT $VERSION $OUTPUT $OUTPUT $DEFECT_PATH
 echo 6
