@@ -66,6 +66,7 @@ jobs:
         run: |
               import os
               os.mkdir(os.path.join('.','ActiveBugs'))
+              os.mkdir(os.path.join('.','Projects'))
         shell: python
 
       - name: run
@@ -108,4 +109,4 @@ jobs:
           # Artifact name
           name: ${{github.event.inputs.project}}
           # A file, directory or wildcard pattern that describes what to upload
-          path: ./csv
+          path: ./Projects
