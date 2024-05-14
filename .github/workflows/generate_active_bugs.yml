@@ -68,10 +68,21 @@ jobs:
               os.mkdir(os.path.join('.','ActiveBugs'))
               os.mkdir(os.path.join('.','Projects'))
         shell: python
-
-      - name: run
+        
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          show-progress: false
+      - name: run commands
         run: |
+              cd `git rev-parse --show-toplevel`
+              chmod +x ./commands.sh
               ./commands.sh ${{github.event.inputs.project}}
+        shell: bash
+        
+      - name: run commands
+        run: |
+              cd `git rev-parse --show-toplevel`
               perl ./framework/bin/defects4j query -p ${{github.event.inputs.project}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o ${{ github.workspace }}/ActiveBugs/active-bugs.csv -A
 
       - name: Script
