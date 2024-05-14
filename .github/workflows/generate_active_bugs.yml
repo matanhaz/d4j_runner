@@ -77,6 +77,13 @@ jobs:
         run: |
               cd `git rev-parse --show-toplevel`
               chmod +x ./commands.sh
+              chmod +x ./clone_projects.sh
+              chmod +x ./create_directories.sh
+              chmod +x ./extract_components.sh
+              chmod +x ./extract_coverage.sh
+              chmod +x ./extract_patch.sh
+              chmod +x ./extract_projects.sh
+              chmod +x ./extract_tests.sh
               ./commands.sh ${{github.event.inputs.project}}
         shell: bash
         
