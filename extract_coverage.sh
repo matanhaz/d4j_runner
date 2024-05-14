@@ -3,6 +3,7 @@ PROJECT=$1
 VERSION=$2
 DIRECTORY=$3/$1/$2
 OUT_DIRECTORY=$4/$1/$2
+DEFECT_PATH=$5
 
 ALL_TESTS_PATH="${OUT_DIRECTORY}/all_tests.txt"
 ALL_COMPONENTS_PATH="${OUT_DIRECTORY}/all_components.txt"
@@ -15,7 +16,7 @@ while IFS= read -r test; do
     formatted_test=$(echo "$test" | sed 's/\ /_/g');
     receiving_test=$(echo "$test" | sed 's/\ /::/g');
     echo "Getting coverage for test ${test}";
-    defects4j coverage -w "${DIRECTORY}" -t "${receiving_test}" -i ${ALL_COMPONENTS_PATH};
+    $DEFECT_PATH coverage -w "${DIRECTORY}" -t "${receiving_test}" -i ${ALL_COMPONENTS_PATH};
     mkdir -p ${TRACES_PATH};
     cp "${DIRECTORY}/coverage.xml" "${TRACES_PATH}/${formatted_test}.xml"
 done < ${ALL_TESTS_PATH};
