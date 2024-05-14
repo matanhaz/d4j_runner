@@ -89,7 +89,7 @@ jobs:
               chmod +x ./extract_patch.sh
               chmod +x ./extract_projects.sh
               chmod +x ./extract_tests.sh
-              ./commands.sh ${{github.event.inputs.project}}
+              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin/defects4j
         shell: bash
         
       - name: run commands
