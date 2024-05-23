@@ -108,7 +108,7 @@ jobs:
               chmod +x ./extract_patch.sh
               chmod +x ./extract_projects.sh
               chmod +x ./extract_tests.sh
-              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin/defects4j ${{ github.workspace }}/Java/bin/java.exe
+              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin ${{ github.workspace }}/Java/bin/java.exe
         shell: bash
         
       - name: run commands
