@@ -20,7 +20,9 @@ DIRECTORY=$3/$1/$2
 OUTPUT_PATH="${DIRECTORY}/all_components.txt"
 INPUT_PATH="${DIRECTORY}/repo/src"
 
-$JAVA18_PATH -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
+export JAVA_HOME="/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64"
+java -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
+export JAVA_HOME="/opt/hostedtoolcache/Java_Adopt_jdk/8.0.412-8/x64"
 echo 3
 
 # extract tests
