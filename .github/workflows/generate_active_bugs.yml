@@ -52,7 +52,7 @@ jobs:
       - name: Set up JDK 17
         uses: AdoptOpenJDK/install-jdk@v1
         with:
-          version: '17'
+          version: '18'
           targets: Java
 
       - name: Set up Python
