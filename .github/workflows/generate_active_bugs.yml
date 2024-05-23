@@ -98,7 +98,7 @@ jobs:
         run: |
               echo $JAVA_HOME
               echo $JAVA_HOME_17
-              ls -R "/opt/hostedtoolcache"
+              ls -R "/opt/hostedtoolcache/Java_Adopt_jdk"
         
       # - name: run commands
       #   run: |
