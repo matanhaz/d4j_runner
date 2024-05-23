@@ -6,6 +6,8 @@ OUTPUT="./Projects"
 
 mkdir "${OUTPUT}/${PROJECT}"
 mkdir "repos"
+mkdir "ground_truth"
+mkdir "ground_truth/${PROJECT}"
 if [ "$PROJECT" = "Chart" ]; then
 	./extract_projects.sh Chart 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH
 	./extract_projects.sh Chart 2 $OUTPUT $DEFECT_PATH $JAVA18_PATH
