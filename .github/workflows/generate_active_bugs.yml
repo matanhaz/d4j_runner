@@ -73,10 +73,10 @@ jobs:
               pip install tqdm
               pip install pydriller
                 
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          show-progress: false
+      # - uses: actions/checkout@v4
+      #   with:
+      #     fetch-depth: 1
+      #     show-progress: false
       - name: run commands
         run: |
               cd `git rev-parse --show-toplevel`
