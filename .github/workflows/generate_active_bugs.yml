@@ -24,14 +24,14 @@ jobs:
         with:
           fetch-depth: 1
           show-progress: false
-      # - name: Run a multi-line script
-      #   run: |
-      #     sudo apt update
-      #     sudo apt-get update
-      #     sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven --fix-missing
-      # - uses: shogo82148/actions-setup-perl@v1
-      #   with:
-      #     perl-version: '5.34'
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven --fix-missing
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
 
           
       - name: create folders
@@ -47,11 +47,18 @@ jobs:
       #   with:
       #     version: '8'
           
-      - uses: AdoptOpenJDK/install-jdk@v1
-        with:
-          version: '17'
-          targets: './Java'
+      # - uses: AdoptOpenJDK/install-jdk@v1
+      #   with:
+      #     version: '17'
+      #     targets: './Java'
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: |
+            17
+            8
+            
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -67,19 +74,19 @@ jobs:
           show-progress: false
 
 
-     #  - name: Install dependencies
-     #    run: |
-     #      cpanm --installdeps .
-     #      ./init.sh
-     #      echo "/framework/bin" >> $GITHUB_PATH
-     # #     export PATH=$PATH:./framework/bin
+      - name: Install dependencies
+        run: |
+          cpanm --installdeps .
+          ./init.sh
+          echo "/framework/bin" >> $GITHUB_PATH
+     #     export PATH=$PATH:./framework/bin
 
 
 
-     #  - name: download requirements
-     #    run: |
-     #          pip install tqdm
-     #          pip install pydriller
+      - name: download requirements
+        run: |
+              pip install tqdm
+              pip install pydriller
                 
       - uses: actions/checkout@v4
         with:
@@ -89,24 +96,24 @@ jobs:
           
       - name: see all
         run: |
-              ls -R
-
+              echo $JAVA_HOME
+              echo $JAVA_HOME_17
         
-      # - name: run commands
-      #   run: |
-      #         cd `git rev-parse --show-toplevel`
-      #         cd Commands
-      #         mkdir Projects
-      #         chmod +x ./commands.sh
-      #         chmod +x ./clone_projects.sh
-      #         chmod +x ./create_directories.sh
-      #         chmod +x ./extract_components.sh
-      #         chmod +x ./extract_coverage.sh
-      #         chmod +x ./extract_patch.sh
-      #         chmod +x ./extract_projects.sh
-      #         chmod +x ./extract_tests.sh
-      #         ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin ${{ github.workspace }}/Java/bin/java.exe
-      #   shell: bash
+      - name: run commands
+        run: |
+              cd `git rev-parse --show-toplevel`
+              cd Commands
+              mkdir Projects
+              chmod +x ./commands.sh
+              chmod +x ./clone_projects.sh
+              chmod +x ./create_directories.sh
+              chmod +x ./extract_components.sh
+              chmod +x ./extract_coverage.sh
+              chmod +x ./extract_patch.sh
+              chmod +x ./extract_projects.sh
+              chmod +x ./extract_tests.sh
+              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin "${JAVA_HOME_17}/bin/java.exe"
+        shell: bash
         
       - name: run commands
         run: |
