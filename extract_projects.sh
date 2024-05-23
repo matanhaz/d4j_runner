@@ -3,6 +3,7 @@ PROJECT=$1
 VERSION=$2
 OUTPUT=$3
 DEFECT_PATH=$4
+JAVA18_PATH=$5
 
 # checkout and get repo folder
 mkdir  "${OUTPUT}/${PROJECT}/${VERSION}"
@@ -16,7 +17,7 @@ DIRECTORY=$3/$1/$2
 OUTPUT_PATH="${DIRECTORY}/all_components.txt"
 INPUT_PATH="${DIRECTORY}/repo/src"
 
-java -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
+$JAVA18_PATH -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
 echo 3
 
 # extract tests
