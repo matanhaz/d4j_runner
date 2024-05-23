@@ -49,11 +49,11 @@ jobs:
           version: '8'
 
 
-      - name: Set up JDK 17
+      - name: Set up JDK 18
         uses: AdoptOpenJDK/install-jdk@v1
         with:
           version: '18'
-          targets: Java
+          targets: 'Java'
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -90,9 +90,9 @@ jobs:
           show-progress: false
           path: Commands
           
-      - name: see all
-        run: |
-              ls -R
+      # - name: see all
+      #   run: |
+      #         ls -R
 
         
       - name: run commands
