@@ -21,7 +21,7 @@ OUTPUT_PATH="${DIRECTORY}/all_components.txt"
 INPUT_PATH="${DIRECTORY}/repo/src"
 
 ls "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin"
-java -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
+"/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java" -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
 echo 3
 
 # extract tests
