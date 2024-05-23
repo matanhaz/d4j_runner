@@ -98,22 +98,23 @@ jobs:
         run: |
               echo $JAVA_HOME
               echo $JAVA_HOME_17
+              ls -R "/opt/hostedtoolcache"
         
-      - name: run commands
-        run: |
-              cd `git rev-parse --show-toplevel`
-              cd Commands
-              mkdir Projects
-              chmod +x ./commands.sh
-              chmod +x ./clone_projects.sh
-              chmod +x ./create_directories.sh
-              chmod +x ./extract_components.sh
-              chmod +x ./extract_coverage.sh
-              chmod +x ./extract_patch.sh
-              chmod +x ./extract_projects.sh
-              chmod +x ./extract_tests.sh
-              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin "${JAVA_HOME_17}/bin/java.exe"
-        shell: bash
+      # - name: run commands
+      #   run: |
+      #         cd `git rev-parse --show-toplevel`
+      #         cd Commands
+      #         mkdir Projects
+      #         chmod +x ./commands.sh
+      #         chmod +x ./clone_projects.sh
+      #         chmod +x ./create_directories.sh
+      #         chmod +x ./extract_components.sh
+      #         chmod +x ./extract_coverage.sh
+      #         chmod +x ./extract_patch.sh
+      #         chmod +x ./extract_projects.sh
+      #         chmod +x ./extract_tests.sh
+      #         ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin "${JAVA_HOME_17}/bin/java.exe"
+      #   shell: bash
         
       - name: run commands
         run: |
