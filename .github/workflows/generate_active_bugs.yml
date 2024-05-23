@@ -79,6 +79,12 @@ jobs:
           fetch-depth: 1
           show-progress: false
           path: Commands
+          
+      - name: see all
+        run: |
+              ls -R
+
+        
       - name: run commands
         run: |
               cd `git rev-parse --show-toplevel`
@@ -91,7 +97,7 @@ jobs:
               chmod +x Commands/extract_patch.sh
               chmod +x Commands/extract_projects.sh
               chmod +x Commands/extract_tests.sh
-              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin/defects4j
+              Commands/commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin/defects4j
         shell: bash
         
       - name: run commands
@@ -134,6 +140,4 @@ jobs:
           name: ${{github.event.inputs.project}}
           # A file, directory or wildcard pattern that describes what to upload
           path: ./Projects
-          
-      - name: see all
-        run: ls -R
+
