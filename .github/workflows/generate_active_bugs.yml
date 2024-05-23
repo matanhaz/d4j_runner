@@ -37,7 +37,7 @@ jobs:
       - name: Set up JDK 1.8
         uses: AdoptOpenJDK/install-jdk@v1
         with:
-          version: '18'
+          version: '8'
 
       - name: Set up Python
         uses: actions/setup-python@v2
