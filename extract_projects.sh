@@ -2,11 +2,14 @@
 PROJECT=$1
 VERSION=$2
 OUTPUT=$3
-DEFECT_PATH=$4
+DEFECT_DIR_PATH=$4
+DEFECT_PATH="${DEFECT_DIR_PATH}/defects4j"
 JAVA18_PATH=$5
 
 # checkout and get repo folder
 mkdir  "${OUTPUT}/${PROJECT}/${VERSION}"
+mkdir "ground_truth/${PROJECT}/${VERSION}"
+
 echo 1
 $DEFECT_PATH checkout -p "${PROJECT}" -v "${VERSION}b" -w "${OUTPUT}/${PROJECT}/${VERSION}"
 echo 2
@@ -25,6 +28,7 @@ echo 3
 echo 4
 
 # extracting ground truth
+cp $DEFECT_DIR_PATH/../projects/$PROJECT/patches/$VERSION.src.patch ground_truth/$PROJECT/$VERSION/patch.txt
 python ./ground_truth.py $PROJECT $VERSION $DEFECT_PATH
 cp ground_truth/$PROJECT/$VERSION/ground_truth.txt projects/$PROJECT/$VERSION
 echo 5
