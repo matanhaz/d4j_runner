@@ -90,26 +90,27 @@ jobs:
           show-progress: false
           path: Commands
           
-      # - name: see all
-      #   run: |
-      #         ls -R
+      - name: see all
+        run: |
+              cd Java
+              ls -R
 
         
-      - name: run commands
-        run: |
-              cd `git rev-parse --show-toplevel`
-              cd Commands
-              mkdir Projects
-              chmod +x ./commands.sh
-              chmod +x ./clone_projects.sh
-              chmod +x ./create_directories.sh
-              chmod +x ./extract_components.sh
-              chmod +x ./extract_coverage.sh
-              chmod +x ./extract_patch.sh
-              chmod +x ./extract_projects.sh
-              chmod +x ./extract_tests.sh
-              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin ${{ github.workspace }}/Java/bin/java.exe
-        shell: bash
+      # - name: run commands
+      #   run: |
+      #         cd `git rev-parse --show-toplevel`
+      #         cd Commands
+      #         mkdir Projects
+      #         chmod +x ./commands.sh
+      #         chmod +x ./clone_projects.sh
+      #         chmod +x ./create_directories.sh
+      #         chmod +x ./extract_components.sh
+      #         chmod +x ./extract_coverage.sh
+      #         chmod +x ./extract_patch.sh
+      #         chmod +x ./extract_projects.sh
+      #         chmod +x ./extract_tests.sh
+      #         ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin ${{ github.workspace }}/Java/bin/java.exe
+      #   shell: bash
         
       - name: run commands
         run: |
