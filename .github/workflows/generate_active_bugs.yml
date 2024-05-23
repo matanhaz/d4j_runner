@@ -24,14 +24,14 @@ jobs:
         with:
           fetch-depth: 1
           show-progress: false
-      - name: Run a multi-line script
-        run: |
-          sudo apt update
-          sudo apt-get update
-          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven --fix-missing
-      - uses: shogo82148/actions-setup-perl@v1
-        with:
-          perl-version: '5.34'
+      # - name: Run a multi-line script
+      #   run: |
+      #     sudo apt update
+      #     sudo apt-get update
+      #     sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven --fix-missing
+      # - uses: shogo82148/actions-setup-perl@v1
+      #   with:
+      #     perl-version: '5.34'
 
           
       - name: create folders
@@ -67,19 +67,19 @@ jobs:
           show-progress: false
 
 
-      - name: Install dependencies
-        run: |
-          cpanm --installdeps .
-          ./init.sh
-          echo "/framework/bin" >> $GITHUB_PATH
-     #     export PATH=$PATH:./framework/bin
+     #  - name: Install dependencies
+     #    run: |
+     #      cpanm --installdeps .
+     #      ./init.sh
+     #      echo "/framework/bin" >> $GITHUB_PATH
+     # #     export PATH=$PATH:./framework/bin
 
 
 
-      - name: download requirements
-        run: |
-              pip install tqdm
-              pip install pydriller
+     #  - name: download requirements
+     #    run: |
+     #          pip install tqdm
+     #          pip install pydriller
                 
       - uses: actions/checkout@v4
         with:
