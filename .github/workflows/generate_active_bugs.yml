@@ -43,14 +43,11 @@ jobs:
         shell: python
         
 
-      - name: Set up JDK 1.8
-        uses: AdoptOpenJDK/install-jdk@v1
+      - uses: AdoptOpenJDK/install-jdk@v1
         with:
           version: '8'
-
-
-      - name: Set up JDK 18
-        uses: AdoptOpenJDK/install-jdk@v1
+          
+      - uses: AdoptOpenJDK/install-jdk@v1
         with:
           version: '18'
           targets: 'Java'
