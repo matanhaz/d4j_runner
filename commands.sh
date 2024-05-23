@@ -4,6 +4,7 @@ DEFECT_PATH=$2
 OUTPUT="./Projects"
 
 mkdir "${OUTPUT}/${PROJECT}"
+mkdir "repos"
 if [ "$PROJECT" = "Chart" ]; then
 	./extract_projects.sh Chart 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Chart 2 $OUTPUT $DEFECT_PATH
@@ -33,6 +34,7 @@ if [ "$PROJECT" = "Chart" ]; then
 	./extract_projects.sh Chart 26 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Codec" ]; then
+	git clone https://github.com/apache/commons-codec.git repos/Codec
 	./extract_projects.sh Codec 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Codec 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Codec 3 $OUTPUT $DEFECT_PATH
@@ -53,12 +55,14 @@ if [ "$PROJECT" = "Codec" ]; then
 	./extract_projects.sh Codec 18 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Collections" ]; then
+	git clone https://github.com/apache/commons-collections.git repos/Collections
 	./extract_projects.sh Collections 25 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Collections 26 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Collections 27 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Collections 28 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Compress" ]; then
+	git clone https://github.com/apache/commons-compress.git repos/Compress
 	./extract_projects.sh Compress 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Compress 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Compress 3 $OUTPUT $DEFECT_PATH
@@ -108,6 +112,7 @@ if [ "$PROJECT" = "Compress" ]; then
 	./extract_projects.sh Compress 47 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Csv" ]; then
+	git clone https://github.com/apache/commons-csv.git repos/Csv
 	./extract_projects.sh Csv 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Csv 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Csv 3 $OUTPUT $DEFECT_PATH
@@ -126,6 +131,7 @@ if [ "$PROJECT" = "Csv" ]; then
 	./extract_projects.sh Csv 16 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Gson" ]; then
+
 	./extract_projects.sh Gson 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Gson 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Gson 3 $OUTPUT $DEFECT_PATH
@@ -277,6 +283,7 @@ if [ "$PROJECT" = "Jsoup" ]; then
 	./extract_projects.sh Jsoup 93 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "JxPath" ]; then
+	git clone https://github.com/apache/commons-jxpath.git repos/JxPath
 	./extract_projects.sh JxPath 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh JxPath 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh JxPath 3 $OUTPUT $DEFECT_PATH
@@ -301,6 +308,7 @@ if [ "$PROJECT" = "JxPath" ]; then
 	./extract_projects.sh JxPath 22 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Lang" ]; then
+	git clone https://github.com/apache/commons-lang.git repos/Lang
 	./extract_projects.sh Lang 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Lang 3 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Lang 4 $OUTPUT $DEFECT_PATH
@@ -435,6 +443,7 @@ if [ "$PROJECT" = "Time" ]; then
 	./extract_projects.sh Time 27 $OUTPUT $DEFECT_PATH
 fi
 if [ "$PROJECT" = "Cli" ]; then
+	git clone https://github.com/apache/commons-cli.git repos/Cli
 	./extract_projects.sh Cli 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Cli 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Cli 3 $OUTPUT $DEFECT_PATH
@@ -477,6 +486,7 @@ if [ "$PROJECT" = "Cli" ]; then
 
 fi
 if [ "$PROJECT" = "Math" ]; then
+	git clone https://github.com/apache/commons-math.git repos/Math
 	./extract_projects.sh Math 1 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Math 2 $OUTPUT $DEFECT_PATH
 	./extract_projects.sh Math 3 $OUTPUT $DEFECT_PATH
