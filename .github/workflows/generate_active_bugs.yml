@@ -66,6 +66,7 @@ jobs:
         run: |
               import os
               os.mkdir(os.path.join('.','ActiveBugs'))
+              os.mkdir(os.path.join('.','Commands'))
         shell: python
 
       - name: download requirements
@@ -73,22 +74,23 @@ jobs:
               pip install tqdm
               pip install pydriller
                 
-      # - uses: actions/checkout@v4
-      #   with:
-      #     fetch-depth: 1
-      #     show-progress: false
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          show-progress: false
+          path: Commands
       - name: run commands
         run: |
               cd `git rev-parse --show-toplevel`
               mkdir Projects
-              chmod +x ./commands.sh
-              chmod +x ./clone_projects.sh
-              chmod +x ./create_directories.sh
-              chmod +x ./extract_components.sh
-              chmod +x ./extract_coverage.sh
-              chmod +x ./extract_patch.sh
-              chmod +x ./extract_projects.sh
-              chmod +x ./extract_tests.sh
+              chmod +x Commands/commands.sh
+              chmod +x Commands/clone_projects.sh
+              chmod +x Commands/create_directories.sh
+              chmod +x Commands/extract_components.sh
+              chmod +x Commands/extract_coverage.sh
+              chmod +x Commands/extract_patch.sh
+              chmod +x Commands/extract_projects.sh
+              chmod +x Commands/extract_tests.sh
               ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin/defects4j
         shell: bash
         
@@ -133,11 +135,5 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           path: ./Projects
           
-      - name: Upload all
-        if: ${{always()}}
-        uses: actions/upload-artifact@v2
-        with:
-          # Artifact name
-          name: ${{github.event.inputs.project}}
-          # A file, directory or wildcard pattern that describes what to upload
-          path: .
+      - name: see all
+        run: ls -a
