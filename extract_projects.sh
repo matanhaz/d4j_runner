@@ -20,7 +20,6 @@ DIRECTORY=$3/$1/$2
 OUTPUT_PATH="${DIRECTORY}/all_components.txt"
 INPUT_PATH="${DIRECTORY}/repo/src"
 
-ls "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin"
 "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java" -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
 echo 3
 
@@ -31,7 +30,7 @@ echo 4
 # extracting ground truth
 cp $DEFECT_DIR_PATH/../projects/$PROJECT/patches/$VERSION.src.patch ground_truth/$PROJECT/$VERSION/patch.txt
 python ./ground_truth.py $PROJECT $VERSION $DEFECT_PATH
-cp ground_truth/$PROJECT/$VERSION/ground_truth.txt projects/$PROJECT/$VERSION
+cp ground_truth/$PROJECT/$VERSION/ground_truth.txt projects/$PROJECT/$VERSION/ground_truth.txt
 echo 5
 
 # extracting traces
