@@ -4,8 +4,8 @@ import re
 from tqdm import tqdm
 import sys
 
-def extract_ground_truths(project, version):
-    output = subprocess.run(['defects4j', 'info', '-p', project, '-b', version], stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.decode('utf-8')
+def extract_ground_truths(project, version, defect_path):
+    output = subprocess.run([defect_path, 'info', '-p', project, '-b', version], stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.decode('utf-8')
 
     program = re.search(r'^\s*Program:\s*(.+)$', output, re.MULTILINE).group(1)
     path = f"repos/{project}"
@@ -44,8 +44,9 @@ def extract_ground_truths(project, version):
 
 project = sys.argv[1]
 version = sys.argv[2]
+defect_path = sys.argv[3]
 print(project + "_" + version)
-methods = extract_ground_truths(project, version)
+methods = extract_ground_truths(project, version, defect_path)
 if (len(methods) == 0):
 	with(open(f"failed.txt", "w")) as file:
         	file.write(f"{project},{version}")
