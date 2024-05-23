@@ -24,7 +24,7 @@ echo 3
 echo 4
 
 # extracting ground truth
-python ./ground_truth.py $PROJECT $VERSION
+python ./ground_truth.py $PROJECT $VERSION $DEFECT_PATH
 cp ground_truth/$PROJECT/$VERSION/ground_truth.txt projects/$PROJECT/$VERSION
 echo 5
 
