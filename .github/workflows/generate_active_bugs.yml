@@ -37,9 +37,7 @@ jobs:
       - name: create folders
         run: |
               import os
-              os.mkdir(os.path.join('.','ActiveBugs'))
               os.mkdir(os.path.join('.','Commands'))
-              os.mkdir(os.path.join('.','Java'))
         shell: python
         
 
@@ -119,6 +117,7 @@ jobs:
       - name: run commands
         run: |
               cd `git rev-parse --show-toplevel`
+              mkdir "ActiveBugs"
               perl ${{ github.workspace }}/framework/bin/defects4j query -p ${{github.event.inputs.project}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o ${{ github.workspace }}/ActiveBugs/active-bugs.csv -A
 
       - name: Script
