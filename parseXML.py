@@ -212,15 +212,12 @@ def create_matrixes(base_project_path, project_matrixes_final_path):
                     failed_test = f.readline()
                     if failed_test == '':
                         break
-                    failed_tests_file = failed_test.replace(' ', '_')
-                    failed_tests_file = failed_tests_file.replace('\n', '')
-                    failed_tests_file += '.xml'
+                    failed_tests2 = failed_test.split(',')
+                    failed_tests_files = [failed_test.replace(' ', '_').replace('\n', '').replace('::', '_') + '.xml' for failed_test in failed_tests2]
+                    failed_tests2 = [f.replace(' ', '.').replace('\n', '').replace('::', '.') + '()' for f in failed_tests2]
 
-                    failed_test = failed_test.replace(' ', '.')
-                    failed_test = failed_test.replace('\n', '')
-                    failed_test += '()'
-                    failed_tests.append(failed_test)
-                    failed_tests_files.append(failed_tests_file)
+                    failed_tests.extend(failed_tests2)
+                    failed_tests_files.extend(failed_tests_files)
 
 
             with open(os.path.join(base_project_path, folder, "ground_truth.txt"), 'r') as f:
