@@ -12,7 +12,6 @@ jobs:
     continue-on-error: true
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 30
     
     strategy:
       fail-fast: false
