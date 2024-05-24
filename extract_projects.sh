@@ -19,7 +19,7 @@ echo 2
 
 
 # extract tests
-./extract_tests.sh $PROJECT $VERSION "${INPUT}/${PROJECT}/${VERSION}" $OUTPUT $DEFECT_PATH
+./extract_tests.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH
 
 echo 3
 
@@ -39,5 +39,5 @@ cp ground_truth/$PROJECT/$VERSION/ground_truth.txt $DIRECTORY/ground_truth.txt
 echo 5
 
 # extracting traces
-./extract_coverage.sh $PROJECT $VERSION "${INPUT}/${PROJECT}/${VERSION}" $OUTPUT $DEFECT_PATH
+./extract_coverage.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH
 echo 6
