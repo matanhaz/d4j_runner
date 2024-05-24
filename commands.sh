@@ -5,6 +5,7 @@ JAVA18_PATH=$3
 OUTPUT="./Projects"
 
 mkdir "${OUTPUT}/${PROJECT}"
+mkdir "Input"
 mkdir "repos"
 mkdir "ground_truth"
 mkdir "ground_truth/${PROJECT}"
