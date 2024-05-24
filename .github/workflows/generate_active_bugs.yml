@@ -167,4 +167,13 @@ jobs:
           name: ${{github.event.inputs.project}}
           # A file, directory or wildcard pattern that describes what to upload
           path: Commands/Projects
+          
+      - name: Upload
+        if: ${{always()}}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: ${{github.event.inputs.project}}
+          # A file, directory or wildcard pattern that describes what to upload
+          path: Commands/Matrixes
 
