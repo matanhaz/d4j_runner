@@ -16,16 +16,19 @@ $DEFECT_PATH checkout -p "${PROJECT}" -v "${VERSION}b" -w $INPUT
 echo 2
 
 
-# extract all components
-DIRECTORY=$3/$1/$2
-OUTPUT_PATH="${DIRECTORY}/all_components.txt"
-INPUT_PATH="${INPUT}/repo/src"
-
-"/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java" -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
-echo 3
 
 # extract tests
 ./extract_tests.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH
+
+echo 3
+
+# extract all components
+DIRECTORY=$3/$1/$2
+OUTPUT_PATH="${DIRECTORY}/all_components.txt"
+INPUT_PATH="${DIRECTORY}/repo/src"
+
+"/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java" -jar extractClass.jar -i $INPUT_PATH -o $OUTPUT_PATH
+
 echo 4
 
 # extracting ground truth
