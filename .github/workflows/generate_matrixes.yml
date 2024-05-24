@@ -15,8 +15,8 @@ jobs:
     
     strategy:
       fail-fast: false
-      matrix:
-          project: [Csv]
+      # matrix:
+      #     project: [Csv]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
