@@ -1,4 +1,4 @@
-name: generate_active_bugs
+name: generate_matrixes
 on:
   workflow_dispatch:
     inputs:
