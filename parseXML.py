@@ -269,7 +269,6 @@ def create_matrixes(base_project_path, project_matrixes_final_path):
                 f.write(final_matrix)
         except Exception as e:
             print("folder failed:", folder)
-            raise
 
 
 if __name__ == '__main__':
