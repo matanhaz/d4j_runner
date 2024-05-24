@@ -122,11 +122,11 @@ if [ "$PROJECT" = "Compress" ]; then
 fi
 if [ "$PROJECT" = "Csv" ]; then
 	git clone https://github.com/apache/commons-csv.git repos/Csv
-	./extract_projects.sh Csv 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Csv 2 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Csv 3 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+	# ./extract_projects.sh Csv 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+	# ./extract_projects.sh Csv 2 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+	# ./extract_projects.sh Csv 3 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	# ./extract_projects.sh Csv 4 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	# ./extract_projects.sh Csv 5 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+	./extract_projects.sh Csv 5 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	# ./extract_projects.sh Csv 6 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	# ./extract_projects.sh Csv 7 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	# ./extract_projects.sh Csv 8 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
