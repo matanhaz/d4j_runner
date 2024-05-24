@@ -41,3 +41,4 @@ echo 5
 # extracting traces
 ./extract_coverage.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH
 echo 6
+rm -rf $DIRECTORY
