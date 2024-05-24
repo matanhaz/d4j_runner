@@ -6,6 +6,7 @@ OUTPUT="./Projects"
 
 mkdir "${OUTPUT}/${PROJECT}"
 mkdir "Input"
+mkdir "Input/${PROJECT}"
 mkdir "repos"
 mkdir "ground_truth"
 mkdir "ground_truth/${PROJECT}"
