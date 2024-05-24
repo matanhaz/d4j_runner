@@ -273,13 +273,10 @@ def create_matrixes(base_project_path, project_matrixes_final_path):
 
 
 if __name__ == '__main__':
-    path = r"C:\Users\matan\Downloads\newMatrixes"
-    matrixes_final_path = r"C:\Users\matan\Desktop\thesis_new\matrixes_d4j"
-    if len(sys.argv) == 2:
-        path = str(sys.argv[1])
+    path = r"Projects"
+    matrixes_final_path = r"Matrixes"
     for project in os.listdir(path):
-        project = 'csv'
         project_matrixes_final_path = os.path.join(matrixes_final_path, project)
-        for _ in range(4):
+        for _ in range(2):
             create_matrixes(os.path.join(path, project), project_matrixes_final_path)
         break
