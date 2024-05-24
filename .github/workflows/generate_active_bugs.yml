@@ -138,9 +138,16 @@ jobs:
          
         shell: python
         
+      - name: run script
+        run: |
+              cd `git rev-parse --show-toplevel`
+              mkdir "Commands"
+              mkdir "Matrixes"
+              python ./parseXML.py
+        
       - name: copy file
         run: |
-              cp ${{ github.workspace }}/ActiveBugs/active-bugs.csv ${{ github.workspace }}/Commands/Projects/${{github.event.inputs.project}}/active-bugs.csv
+              cp ${{ github.workspace }}/ActiveBugs/active-bugs.csv ${{ github.workspace }}/Commands/Matrixes/${{github.event.inputs.project}}/active-bugs.csv
 
       
       - name: Upload
