@@ -19,7 +19,7 @@ echo 2
 
 
 # extract tests
-./extract_tests.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH
+./extract_tests.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH  > /dev/null
 
 echo 3
 
@@ -41,4 +41,4 @@ echo 5
 # extracting traces
 ./extract_coverage.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH > /dev/null
 echo 6
-rm -rf $DIRECTORY
+rm -rf "${INPUT}/${PROJECT}/${VERSION}"
