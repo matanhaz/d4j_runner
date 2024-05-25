@@ -1,15 +1,17 @@
 #!/bin/bash
 PROJECT=$1
+IFS="-" read -ra parts <<< "$PROJECT"
+PROJECT_FOLDER="${parts[0]}"
 DEFECT_PATH=$2
 JAVA18_PATH=$3
 OUTPUT="./Projects"
 
-mkdir "${OUTPUT}/${PROJECT}"
+mkdir "${OUTPUT}/${PROJECT_FOLDER}"
 mkdir "Input"
-mkdir "Input/${PROJECT}"
+mkdir "Input/${PROJECT_FOLDER}"
 mkdir "repos"
 mkdir "ground_truth"
-mkdir "ground_truth/${PROJECT}"
+mkdir "ground_truth/${PROJECT_FOLDER}"
 if [ "$PROJECT" = "Chart" ]; then
 	./extract_projects.sh Chart 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Chart 2 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
