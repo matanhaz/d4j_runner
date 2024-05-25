@@ -1,11 +1,14 @@
 name: generate_matrixes
 on:
-  workflow_dispatch:
-    inputs:
-        project:
-          description: 'name of repository'
-          required: true
-          default: 'Csv'
+  issues:
+    types: [opened]
+# on:
+#   workflow_dispatch:
+#     inputs:
+#         project:
+#           description: 'name of repository'
+#           required: true
+#           default: 'Csv'
 
 jobs:
   build0:
@@ -111,14 +114,15 @@ jobs:
               chmod +x ./extract_patch.sh
               chmod +x ./extract_projects.sh
               chmod +x ./extract_tests.sh
-              ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java.exe"
+              ./commands.sh ${{github.event.issue.title}} ${{ github.workspace }}/framework/bin "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java.exe"
+       #       ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java.exe"
         shell: bash
         
       - name: run commands
         run: |
               cd `git rev-parse --show-toplevel`
               mkdir "ActiveBugs"
-              perl ${{ github.workspace }}/framework/bin/defects4j query -p ${{github.event.inputs.project}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o ${{ github.workspace }}/ActiveBugs/active-bugs.csv -A
+              perl ${{ github.workspace }}/framework/bin/defects4j query -p ${{github.event.issue.title}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o ${{ github.workspace }}/ActiveBugs/active-bugs.csv -A
 
       - name: Script
         run: |
@@ -147,7 +151,7 @@ jobs:
         
       - name: copy file
         run: |
-              cp ${{ github.workspace }}/ActiveBugs/active-bugs.csv ${{ github.workspace }}/Commands/Matrixes/${{github.event.inputs.project}}/active-bugs.csv
+              cp ${{ github.workspace }}/ActiveBugs/active-bugs.csv ${{ github.workspace }}/Commands/Matrixes/${{github.event.issue.title}}/active-bugs.csv
 
       
       - name: Upload
@@ -155,7 +159,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
-          name: ${{github.event.inputs.project}}_ActiveBugs
+          name: ${{github.event.issue.title}}_ActiveBugs
           # A file, directory or wildcard pattern that describes what to upload
           path: ./ActiveBugs
           
@@ -173,7 +177,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
-          name: ${{github.event.inputs.project}}
+          name: ${{github.event.issue.title}}
           # A file, directory or wildcard pattern that describes what to upload
           path: Commands/Matrixes
 
