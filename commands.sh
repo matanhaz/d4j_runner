@@ -348,6 +348,7 @@ if [ "$PROJECT" = "Lang" ]; then
 	./extract_projects.sh Lang 23 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 24 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 25 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
 	./extract_projects.sh Lang 26 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 27 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 28 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -372,6 +373,7 @@ if [ "$PROJECT" = "Lang" ]; then
 	./extract_projects.sh Lang 47 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 48 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 49 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
 	./extract_projects.sh Lang 50 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 51 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 52 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
