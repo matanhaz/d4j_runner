@@ -85,6 +85,9 @@ if [ "$PROJECT" = "Compress-1" ]; then
 	./extract_projects.sh Compress 10 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 11 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 12 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+ if [ "$PROJECT" = "Compress-2" ]; then
 	./extract_projects.sh Compress 13 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 14 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 15 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -99,7 +102,7 @@ if [ "$PROJECT" = "Compress-1" ]; then
 	./extract_projects.sh Compress 24 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	wait
 fi
-if [ "$PROJECT" = "Compress-2" ]; then
+if [ "$PROJECT" = "Compress-3" ]; then
 	git clone https://github.com/apache/commons-compress.git repos/Compress
 	./extract_projects.sh Compress 25 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 26 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -112,6 +115,9 @@ if [ "$PROJECT" = "Compress-2" ]; then
 	./extract_projects.sh Compress 33 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 34 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 35 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Compress-4" ]; then
 	./extract_projects.sh Compress 36 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 37 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 38 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -341,6 +347,9 @@ if [ "$PROJECT" = "Lang-1" ]; then
 	./extract_projects.sh Lang 10 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 11 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 12 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+ if [ "$PROJECT" = "Lang-2" ]; then
 	./extract_projects.sh Lang 13 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 14 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 15 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -356,7 +365,7 @@ if [ "$PROJECT" = "Lang-1" ]; then
 	./extract_projects.sh Lang 25 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	wait
 fi
-if [ "$PROJECT" = "Lang-2" ]; then
+if [ "$PROJECT" = "Lang-3" ]; then
 	git clone https://github.com/apache/commons-lang.git repos/Lang
 	./extract_projects.sh Lang 26 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 27 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -370,6 +379,9 @@ if [ "$PROJECT" = "Lang-2" ]; then
 	./extract_projects.sh Lang 35 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 36 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 37 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+  	wait
+fi
+ if [ "$PROJECT" = "Lang-4" ]; then
 	./extract_projects.sh Lang 38 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 39 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 40 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -384,7 +396,7 @@ if [ "$PROJECT" = "Lang-2" ]; then
 	./extract_projects.sh Lang 49 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
  	wait
 fi
-if [ "$PROJECT" = "Lang-3" ]; then
+if [ "$PROJECT" = "Lang-5" ]; then
 	git clone https://github.com/apache/commons-lang.git repos/Lang
 	./extract_projects.sh Lang 50 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 51 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -395,6 +407,9 @@ if [ "$PROJECT" = "Lang-3" ]; then
 	./extract_projects.sh Lang 56 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 57 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 58 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Lang-6" ]; then
 	./extract_projects.sh Lang 59 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 60 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Lang 61 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -485,6 +500,9 @@ if [ "$PROJECT" = "Cli-1" ]; then
 	./extract_projects.sh Cli 8 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 9 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 10 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+  	wait
+fi
+if [ "$PROJECT" = "Cli-2" ]; then
 	./extract_projects.sh Cli 11 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 12 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 13 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -497,7 +515,7 @@ if [ "$PROJECT" = "Cli-1" ]; then
 	./extract_projects.sh Cli 20 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
  	wait
 fi
-if [ "$PROJECT" = "Cli-2" ]; then
+if [ "$PROJECT" = "Cli-3" ]; then
 	git clone https://github.com/apache/commons-cli.git repos/Cli
 	./extract_projects.sh Cli 21 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 22 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -509,6 +527,9 @@ if [ "$PROJECT" = "Cli-2" ]; then
 	./extract_projects.sh Cli 28 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 29 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 30 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Cli-4" ]; then
 	./extract_projects.sh Cli 31 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 32 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Cli 33 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -535,6 +556,9 @@ if [ "$PROJECT" = "Math-1" ]; then
 	./extract_projects.sh Math 10 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 11 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 12 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Math-2" ]; then
 	./extract_projects.sh Math 13 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 14 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 15 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -550,7 +574,7 @@ if [ "$PROJECT" = "Math-1" ]; then
 	./extract_projects.sh Math 25 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	wait
 fi
-if [ "$PROJECT" = "Math-2" ]; then
+if [ "$PROJECT" = "Math-3" ]; then
 	git clone https://github.com/apache/commons-math.git repos/Math
 	./extract_projects.sh Math 26 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 27 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -566,6 +590,9 @@ if [ "$PROJECT" = "Math-2" ]; then
 	./extract_projects.sh Math 37 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 38 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 39 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Math-4" ]; then
 	./extract_projects.sh Math 40 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 41 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 42 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -581,7 +608,7 @@ if [ "$PROJECT" = "Math-2" ]; then
 	./extract_projects.sh Math 52 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	wait
 fi
-if [ "$PROJECT" = "Math-3" ]; then
+if [ "$PROJECT" = "Math-5" ]; then
 	git clone https://github.com/apache/commons-math.git repos/Math
 	./extract_projects.sh Math 53 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 54 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -595,6 +622,9 @@ if [ "$PROJECT" = "Math-3" ]; then
 	./extract_projects.sh Math 62 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 63 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 64 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Math-6" ]; then
 	./extract_projects.sh Math 65 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 66 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 67 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -609,7 +639,7 @@ if [ "$PROJECT" = "Math-3" ]; then
 	./extract_projects.sh Math 76 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	wait
 fi
-if [ "$PROJECT" = "Math-4" ]; then
+if [ "$PROJECT" = "Math-7" ]; then
 	git clone https://github.com/apache/commons-math.git repos/Math
 	./extract_projects.sh Math 77 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 78 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
@@ -627,6 +657,9 @@ if [ "$PROJECT" = "Math-4" ]; then
 	./extract_projects.sh Math 90 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 91 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 92 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+ 	wait
+fi
+if [ "$PROJECT" = "Math-8" ]; then
 	./extract_projects.sh Math 93 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 94 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Math 95 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
