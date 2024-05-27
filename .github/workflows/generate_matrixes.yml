@@ -122,7 +122,10 @@ jobs:
         run: |
               cd `git rev-parse --show-toplevel`
               mkdir "ActiveBugs"
-              perl ${{ github.workspace }}/framework/bin/defects4j query -p ${{github.event.issue.title}} -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o ${{ github.workspace }}/ActiveBugs/active-bugs.csv -A
+              PROJECT=${{github.event.issue.title}}
+              IFS="-" read -ra parts <<< "$PROJECT"
+              PROJECT_FOLDER="${parts[0]}"
+              perl ${{ github.workspace }}/framework/bin/defects4j query -p $PROJECT_FOLDER -q "bug.id,revision.id.buggy,revision.id.fixed,report.id" -o ${{ github.workspace }}/ActiveBugs/active-bugs.csv -A
 
       - name: Script
         run: |
