@@ -221,15 +221,18 @@ def create_matrixes(base_project_path, project_matrixes_final_path):
 
 
             with open(os.path.join(base_project_path, folder, "ground_truth.txt"), 'r') as f:
-                faulty_function = f.read()
+                faulty_functions = f.readlines()
 
-            faulty_function = faulty_function.replace('::', '.')
-            faulty_function = faulty_function.replace('\n', '')
+            faulty_functions = set([f.replace('::', '.').replace('\n', '') for f in faulty_functions])
+
+            # TODO: if want to support matrix with more than a single fault, remove this
+            if len(faulty_functions) > 1:
+                raise
 
             func_name_to_id = parse_component_to_id(os.path.join(base_project_path, folder, "traces"),[os.path.join(base_project_path, folder, "traces", failed_test_file) for failed_test_file in failed_tests_files ])
             test_to_functions = parse_test_to_components(os.path.join(base_project_path, folder, "traces"), func_name_to_id)
 
-            possible_faulty_function_name_old = [func_name for func_name in func_name_to_id.keys() if faulty_function in func_name]
+            possible_faulty_function_name_old = [func_name for func_name in func_name_to_id.keys() if func_name.split('(')[0] in faulty_functions]
             if len(possible_faulty_function_name_old) == 1:
                 faulty_function = possible_faulty_function_name_old[0]
             else:
