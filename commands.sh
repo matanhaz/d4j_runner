@@ -336,18 +336,17 @@ if [ "$PROJECT" = "JxPath" ]; then
 fi
 if [ "$PROJECT" = "Lang-1" ]; then
 	git clone https://github.com/apache/commons-lang.git repos/Lang
-	./extract_projects.sh Lang 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 3 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 4 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 5 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 6 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 7 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 8 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 9 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 10 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 11 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
-	./extract_projects.sh Lang 12 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
- 	wait
+	./extract_projects.sh Lang 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 3 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 4 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 5 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 6 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 7 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 8 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 9 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 10 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 11 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
+	./extract_projects.sh Lang 12 $OUTPUT $DEFECT_PATH $JAVA18_PATH 
 fi
 #  if [ "$PROJECT" = "Lang-2" ]; then
 # 	./extract_projects.sh Lang 13 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
