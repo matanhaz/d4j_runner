@@ -154,7 +154,10 @@ jobs:
         
       - name: copy file
         run: |
-              cp ${{ github.workspace }}/ActiveBugs/active-bugs.csv ${{ github.workspace }}/Commands/Matrixes/${{github.event.issue.title}}/active-bugs.csv
+              PROJECT=${{github.event.issue.title}}
+              IFS="-" read -ra parts <<< "$PROJECT"
+              PROJECT_FOLDER="${parts[0]}"
+              cp ${{ github.workspace }}/ActiveBugs/active-bugs.csv ${{ github.workspace }}/Commands/Matrixes/$PROJECT_FOLDER/active-bugs.csv
 
       
       - name: Upload
