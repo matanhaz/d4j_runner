@@ -72,7 +72,7 @@ def get_sig(method):
                     is_list = False
                 final_sig += ";"
             else:
-                final_sig += arg.split('/')[-1]
+                final_sig += arg.replace('/', '.').replace('$', '.').split('.')[-1]
                 if is_list:
                     final_sig += '[]'
                     is_list = False
