@@ -126,6 +126,10 @@ if [ "$PROJECT" = "Compress-4" ]; then
 	./extract_projects.sh Compress 39 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 40 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 41 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
+	wait
+fi
+if [ "$PROJECT" = "Compress-5" ]; then
+	git clone https://github.com/apache/commons-compress.git repos/Compress
 	./extract_projects.sh Compress 42 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 43 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	./extract_projects.sh Compress 44 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
