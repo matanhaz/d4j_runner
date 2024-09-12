@@ -162,7 +162,7 @@ jobs:
       
       - name: Upload
         if: ${{always()}}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: ${{github.event.issue.title}}_ActiveBugs
@@ -171,7 +171,7 @@ jobs:
           
       - name: Upload
         if: ${{always()}}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: Old_data
@@ -180,7 +180,7 @@ jobs:
           
       - name: Upload
         if: ${{always()}}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: ${{github.event.issue.title}}
