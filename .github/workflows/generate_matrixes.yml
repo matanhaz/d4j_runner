@@ -122,7 +122,7 @@ jobs:
               chmod +x ./extract_patch.sh
               chmod +x ./extract_projects.sh
               chmod +x ./extract_tests.sh
-              ./commands.sh ${{github.event.issue.title}} ${{ github.workspace }}/framework/bin "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.12-7/x64/bin/java.exe"
+              ./commands.sh ${{github.event.issue.title}} ${{ github.workspace }}/framework/bin "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.12-7/x64/bin/java"
        #       ./commands.sh ${{github.event.inputs.project}} ${{ github.workspace }}/framework/bin "/opt/hostedtoolcache/Java_Adopt_jdk/17.0.11-9/x64/bin/java.exe"
         shell: bash
         
