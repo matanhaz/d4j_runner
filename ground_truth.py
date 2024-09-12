@@ -14,7 +14,8 @@ def extract_ground_truths(project, version, defect_path):
     common_prefixes = ["src/main/java", "src/test/java", "src/java", "src/test", "src/main"]
 
     repo = pydriller.Repository(path, only_commits=[commit])
-    commit = next(repo.traverse_commits())
+    travers = next(repo.traverse_commits())
+    commit = next(travers)
     modified_files = commit.modified_files
 
     patch_path = f"ground_truth/{project}/{version}/patch.txt"
