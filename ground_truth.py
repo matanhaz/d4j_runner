@@ -6,7 +6,7 @@ import sys
 
 def extract_ground_truths(project, version, defect_path):
     output = subprocess.run([defect_path, 'info', '-p', project, '-b', version], stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.decode('utf-8')
-
+    print(f"output is: {output}")
     program = re.search(r'^\s*Program:\s*(.+)$', output, re.MULTILINE).group(1)
     path = f"repos/{project}"
     commit = re.search(r'^Revision ID \(fixed version\):\s*\n([a-f0-9]+)$', output, re.MULTILINE).group(1)
@@ -14,7 +14,7 @@ def extract_ground_truths(project, version, defect_path):
     common_prefixes = ["src/main/java", "src/test/java", "src/java", "src/test", "src/main"]
 
     repo = pydriller.Repository(path, only_commits=[commit])
-    travers = next(repo.traverse_commits())
+    travers = repo.traverse_commits()
     commit = next(travers)
     modified_files = commit.modified_files
 
