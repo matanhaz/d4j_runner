@@ -39,6 +39,6 @@ cp ground_truth/$PROJECT/$VERSION/ground_truth.txt $DIRECTORY/ground_truth.txt
 echo 5
 
 # extracting traces
-./extract_coverage.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH
+./extract_coverage.sh $PROJECT $VERSION $INPUT $OUTPUT $DEFECT_PATH > /dev/null 2>&1
 echo 6
 rm -rf "${INPUT}/${PROJECT}/${VERSION}"
