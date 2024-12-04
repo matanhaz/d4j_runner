@@ -1,7 +1,7 @@
 name: generate_matrixes
 on:
   issues:
-    types: [opened]
+    types: [closed]
 # on:
 #   workflow_dispatch:
 #     inputs:
