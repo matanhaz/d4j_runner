@@ -70,9 +70,9 @@ jobs:
             8
             
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.7
+          python-version: 3.9
 
        
       - name: Checkout d4j
