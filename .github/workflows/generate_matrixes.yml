@@ -65,6 +65,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: |
+            11
             17
             8
             
