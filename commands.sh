@@ -4,6 +4,7 @@ IFS="-" read -ra parts <<< "$PROJECT"
 PROJECT_FOLDER="${parts[0]}"
 DEFECT_PATH=$2
 JAVA18_PATH=$3
+BUG_ID=$4
 OUTPUT="./Projects"
 
 mkdir "${OUTPUT}/${PROJECT_FOLDER}"
@@ -557,6 +558,12 @@ if [ "$PROJECT" = "Cli-4" ]; then
 	./extract_projects.sh Cli 40 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
 	wait
 fi
+
+if [ "$PROJECT" = "Math" ]; then
+	git clone https://github.com/apache/commons-math.git repos/Math
+	./extract_projects.sh Math $BUG_ID $OUTPUT $DEFECT_PATH $JAVA18_PATH
+fi
+
 if [ "$PROJECT" = "Math-1" ]; then
 	git clone https://github.com/apache/commons-math.git repos/Math
 	./extract_projects.sh Math 1 $OUTPUT $DEFECT_PATH $JAVA18_PATH &
